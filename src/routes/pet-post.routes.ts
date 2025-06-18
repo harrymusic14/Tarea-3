@@ -1,6 +1,7 @@
 import { Router } from 'express'
 import { authMiddleware } from '../middlewares/auth.middleware'
 import { requireRole } from '../middlewares/role.middleware'
+import { registerPetPostController } from '../controllers/pet-post/register-pet-post.controller'
 
 const router = Router()
 
@@ -11,8 +12,6 @@ router.use(authMiddleware)
 router.get('/', (req, res) => res.send('Ruta protegida: obtener publicaciones'))
 
 // Ruta accesible solo a administradores
-router.post('/', requireRole('admin'), (req, res) =>
-  res.send('Ruta protegida SOLO para ADMIN: crear publicación')
-)
+router.post('/', requireRole('admin'), registerPetPostController)
 
 export default router

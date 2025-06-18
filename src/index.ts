@@ -1,5 +1,5 @@
-import express from 'express'
 import 'reflect-metadata'
+import express from 'express'
 import { AppDataSource } from './config/data-source'
 import userRoutes from './routes/user.routes'
 import petPostRoutes from './routes/pet-post.routes'
